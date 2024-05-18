@@ -1,0 +1,49 @@
+@import "/src/assets/styles/variables";
+
+.header__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: $blue_3;
+  padding: 1.5rem;
+
+  .header__brand_container {
+    height: 100%;
+    max-width: 5vw;
+
+    .header__brang_img {
+      height: auto;
+      width: 2.5rem;
+      color: $white;
+    }
+  }
+
+  .header__navigation_links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    
+    .header__navigation_link {
+      font-size: 1rem;
+      font-weight: 600;
+      background: transparent;
+      border-radius: 15px;
+      color: $white;
+      padding: .75rem 1.5rem;
+      margin: 0 1.5rem;
+      transition: .25s ease;
+      cursor: pointer;
+
+      &:hover {
+        opacity: .5;
+      }
+
+      &.active {
+        background: $white;
+        color: $blue_3;
+      }
+    }
+  }
+}
