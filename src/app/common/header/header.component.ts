@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  currentView: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
+    this.currentView = window.location.pathname;
   }
 
 }

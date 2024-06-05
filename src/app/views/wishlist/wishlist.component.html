@@ -1,0 +1,21 @@
+<div class="withlist__container">
+  <div class="withlist__list_container">
+    <div class="withlist__list_header">
+      <h2>Wishlist</h2>
+      <button>See all</button>
+    </div>
+    <ul class="withlist__items_list_container">
+      <li *ngFor="let item of itemsList; let i = index" (mouseover)="activeWishListItem = i"
+        (mouseout)="activeWishListItem = null">
+        <div class="withlist__list_item">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+          <div [class.withlist__list_item_button_active_container]="activeWishListItem == i"
+            class="withlist__list_item_button_container">
+            <button>See details</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

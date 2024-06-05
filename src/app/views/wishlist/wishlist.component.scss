@@ -1,0 +1,114 @@
+@import "/src/assets/styles/variables";
+
+.withlist__container {
+  display: flex;
+  flex-direction: column;
+
+  .withlist__list_container {
+    display: flex;
+    flex-direction: column;
+
+    .withlist__list_header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #000;
+      }
+
+      button {
+        background: rgba($blue_1, 1);
+        border: none;
+        border-radius: 15px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #FFF;
+        padding: .75rem 3rem;
+        transition: .25s ease;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba($blue_1, .75);
+        }
+      }
+    }
+
+    .withlist__items_list_container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 25px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      scrollbar-width: none;
+
+      .withlist__list_item {
+        height: 250px;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        background: $blue_1;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border: none;
+        border-radius: 10px;
+        padding: 1rem;
+
+        h3 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          text-align: center;
+          color: #FFF;
+          padding-bottom: .5rem;
+        }
+
+        p {
+          font-size: 1.15rem;
+          font-weight: 500;
+          text-align: center;
+          color: #FFF;
+          white-space: normal;
+        }
+
+        .withlist__list_item_button_container {
+          height: 0%;
+          width: 100%;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          transition: .5s ease;
+
+          &.withlist__list_item_button_active_container {
+            height: 20%;
+          }
+
+          button {
+            background: rgba(#FFF, 1);
+            border: none;
+            border-radius: 10px;
+            padding: .5rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #000;
+            transition: .25s ease;
+            cursor: pointer;
+
+            &:hover {
+              background: rgba(#FFF, .75);
+            }
+          }
+        }
+      }
+    }
+  }
+}
