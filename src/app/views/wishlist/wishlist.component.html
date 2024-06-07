@@ -2,7 +2,13 @@
   <div class="withlist__list_container">
     <div class="withlist__list_header">
       <h2>Wishlist</h2>
-      <button>See all</button>
+      <div class="withlist__list_header_button_container">
+        <button (click)="showModal = true">
+          Add new item
+          <img src="assets/images/plus-solid.svg" alt="Icon to add new item">
+        </button>
+        <button>See all</button>
+      </div>
     </div>
     <ul class="withlist__items_list_container">
       <li *ngFor="let item of itemsList; let i = index" (mouseover)="activeWishListItem = i"
@@ -19,3 +25,7 @@
     </ul>
   </div>
 </div>
+
+<ng-container *ngIf="showModal">
+  <app-modal (closeModal)="closeModal()"></app-modal>
+</ng-container>

@@ -11,6 +11,7 @@ export class WishlistComponent implements OnInit {
 
   itemsList: IWishlistItem[] = [];
   activeWishListItem: number | null = null;
+  showModal: boolean = true;
 
   constructor(
     private apiService: ApiService
@@ -24,4 +25,7 @@ export class WishlistComponent implements OnInit {
     })
   }
 
+  closeModal() {
+    this.showModal = false;
+  }
 }
