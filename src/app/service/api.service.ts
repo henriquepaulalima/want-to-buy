@@ -17,4 +17,9 @@ export class ApiService {
   getAllWishlishItems(): Observable<IWishlistItem[]> {
     return this.http.get<IWishlistItem[]>(this.apiKey);
   }
+
+  createNewItem(wishlistItem: IWishlistItem) {
+    return this.http.post<IWishlistItem>(this.apiKey, wishlistItem);
+  }
 }
+

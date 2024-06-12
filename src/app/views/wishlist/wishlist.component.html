@@ -27,5 +27,5 @@
 </div>
 
 <ng-container *ngIf="showModal">
-  <app-modal (closeModal)="closeModal()"></app-modal>
+  <app-modal (updateList)="this.getItems();" (closeModal)="this.closeModal()"></app-modal>
 </ng-container>

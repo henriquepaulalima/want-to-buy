@@ -11,21 +11,25 @@ export class WishlistComponent implements OnInit {
 
   itemsList: IWishlistItem[] = [];
   activeWishListItem: number | null = null;
-  showModal: boolean = true;
+  showModal: boolean = false;
 
   constructor(
     private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
+    this.getItems();
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
+  getItems(): void {
     this.apiService.getAllWishlishItems().subscribe({
       next: (data) => {
         this.itemsList = data;
       }
     })
-  }
-
-  closeModal() {
-    this.showModal = false;
   }
 }

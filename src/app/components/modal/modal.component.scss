@@ -1,3 +1,5 @@
+@import "/src/assets/styles/variables";
+
 .modal__container {
   display: flex;
   flex-direction: column;
@@ -11,26 +13,111 @@
   background: rgba($color: #000000, $alpha: .5);
   z-index: 1;
 
-  .modal__form_container {
+  .modal__content_container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    height: 85%;
-    width: 75vw;
+    height: 75%;
+    width: 50%;
     overflow: auto;
     background: #FFF;
     border: 0;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     transition: .5s ease;
+    padding: 1.5rem;
 
-    &.modal__form_container_hide {
+    &.modal__content_container_hide {
       height: 0%;
+      padding: 0;
     }
 
-    p {
-      height: 100%;
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .modal__form_container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+
+      fieldset {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0;
+
+        label {
+          font-size: 1.25rem;
+          font-weight: 500;
+          padding-bottom: .5rem;
+        }
+
+        input {
+          border: 2px solid $blue_2;
+          border-radius: 10px;
+          padding: 1rem;
+
+          &.invalid {
+            border-color: #F44336;
+          }
+        }
+
+        small {
+          font-size: 1rem;
+          color: #F44336;
+          padding-top: .25rem;
+        }
+      }
+
+      .modal__form_buttons_container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        button {
+          border: none;
+          border-radius: 15px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #FFF;
+          padding: 1rem 2rem;
+          margin: 0 .5rem;
+          transition: .25s ease;
+          cursor: pointer;
+
+          &.modal__form_cancel_btn {
+            border: 2px solid #252525;
+            background: transparent;
+            color: #252525;
+
+            &:hover {
+              color: #FFF;
+              background: rgba($color: #252525, $alpha: .75);
+            }
+          }
+
+          &.modal__form_save_btn {
+            background: $blue_1;
+
+            &:hover {
+              background: $blue_3;
+            }
+
+            &:disabled {
+              background: rgba($color: $blue_1, $alpha: .5);
+              cursor: default;
+            }
+          }
+        }
+      }
     }
   }
 }
