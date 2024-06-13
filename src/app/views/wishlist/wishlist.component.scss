@@ -1,14 +1,14 @@
 @import "/src/assets/styles/variables";
 
-.withlist__container {
+.wishlist__container {
   display: flex;
   flex-direction: column;
 
-  .withlist__list_container {
+  .wishlist__list_container {
     display: flex;
     flex-direction: column;
 
-    .withlist__list_header {
+    .wishlist__list_header {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -21,7 +21,7 @@
         color: #000;
       }
 
-      .withlist__list_header_button_container {
+      .wishlist__list_header_button_container {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -45,6 +45,16 @@
             background: rgba($blue_1, .75);
           }
 
+          &.wishlist__list_header_see_more_btn {
+            border: 3px solid $blue_1;
+            background: transparent;
+            color: $blue_1;
+
+            &:hover {
+              background: rgba($color: $blue_1, $alpha: .25);
+            }
+          }
+
           img {
             height: 20px;
             width: auto;
@@ -54,7 +64,7 @@
       }
     }
 
-    .withlist__items_list_container {
+    .wishlist__items_list_container {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -65,7 +75,7 @@
       white-space: nowrap;
       scrollbar-width: none;
 
-      .withlist__list_item {
+      .wishlist__list_item {
         height: 250px;
         width: 250px;
         display: flex;
@@ -94,7 +104,7 @@
           white-space: normal;
         }
 
-        .withlist__list_item_button_container {
+        .wishlist__list_item_button_container {
           height: 0%;
           width: 100%;
           overflow: hidden;
@@ -104,7 +114,7 @@
           align-items: center;
           transition: .5s ease;
 
-          &.withlist__list_item_button_active_container {
+          &.wishlist__list_item_button_active_container {
             height: 20%;
           }
 
