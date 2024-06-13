@@ -1,7 +1,7 @@
 <div class="modal__container">
   <div [class.modal__content_container_hide]="!showForm" class="modal__content_container">
     <h2>Create a new item</h2>
-    <form [formGroup]="this.form" class="modal__form_container">
+    <form (submit)="this.submitForm();" [formGroup]="this.form" class="modal__form_container">
       <fieldset>
         <label for="title_input">Title</label>
         <input [class.invalid]="this.form.get('title')?.touched && !this.form.get('title')?.valid" formControlName="title" id="title_input" type="text">
@@ -14,7 +14,7 @@
       </fieldset>
       <div class="modal__form_buttons_container">
         <button (click)="doCloseModal();" type="button" class="modal__form_cancel_btn">Cancel</button>
-        <button (click)="saveNewItem();" [disabled]="!this.form.valid" type="button" class="modal__form_save_btn">Save</button>
+        <button [disabled]="!this.form.dirty || !this.form.valid" type="submit" class="modal__form_save_btn">Save</button>
       </div>
     </form>
   </div>

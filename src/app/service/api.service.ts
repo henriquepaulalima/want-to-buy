@@ -8,7 +8,7 @@ import { IWishlistItem } from '../interfaces/wishlist-item';
 })
 export class ApiService {
 
-  public readonly apiKey = "https://nexus-data.vercel.app/want_to_buy";
+  public readonly apiKey = "http://localhost:4000/items";
 
   constructor(
     private http: HttpClient
@@ -21,5 +21,9 @@ export class ApiService {
   createNewItem(wishlistItem: IWishlistItem) {
     return this.http.post<IWishlistItem>(this.apiKey, wishlistItem);
   }
-}
 
+  updateItem(wishlistItem: IWishlistItem) {
+    const url = `${this.apiKey}/${wishlistItem.id}`;
+    return this.http.put<IWishlistItem>(url, wishlistItem);
+  }
+}

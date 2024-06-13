@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IWishlistItem } from 'src/app/interfaces/wishlist-item';
 import { ApiService } from 'src/app/service/api.service';
@@ -11,21 +11,33 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class ModalComponent implements OnInit {
 
+  @Input() modalData: IWishlistItem | null = null;
   @Output() closeModal = new EventEmitter<boolean>();
   @Output() updateList = new EventEmitter<void>();
 
   public showForm: boolean = false;
   public form!: FormGroup;
+  public formData!: IWishlistItem;
 
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService
-  ) {  }
+  ) { }
 
   ngOnInit(): void {
+    if (this.modalData) {
+      this.formData = this.modalData;
+    } else {
+      this.formData = {
+        id: "",
+        title: "",
+        description: ""
+      };
+    }
+
     this.form = this.formBuilder.group({
-      title: ['', [Validators.required]],
-      description: ['', [Validators.required]]
+      title: [this.formData?.title, [Validators.required]],
+      description: [this.formData?.description, [Validators.required]]
     });
 
     setTimeout(() => {
@@ -33,7 +45,7 @@ export class ModalComponent implements OnInit {
     }, 500);
   }
 
-  doCloseModal(): void {
+  public doCloseModal(): void {
     this.showForm = false;
 
     setTimeout(() => {
@@ -41,22 +53,30 @@ export class ModalComponent implements OnInit {
     }, 500);
   }
 
-  saveNewItem(): void {
+  public submitForm(): void {
     if (this.form.valid) {
-      const id = uuidv4();
-      const newItem: IWishlistItem = {
-        id: id,
+      const itemId = this.modalData?.id ? this.modalData.id : uuidv4();
+      const item: IWishlistItem = {
+        id: itemId,
         title: this.form.get('title')?.value,
         description: this.form.get('description')?.value
       };
 
-      this.apiService.createNewItem(newItem).subscribe(() => {
-        this.clearForm();
-      })
+      if (this.modalData) {
+        this.apiService.updateItem(item).subscribe(() => {
+          this.clearForm();
+        });
+      } else {
+        this.apiService.createNewItem(item).subscribe(() => {
+          this.clearForm();
+        });
+      }
+    } else {
+      console.error("Something went wrong when doing API request");
     }
   }
 
-  clearForm(): void {
+  public clearForm(): void {
     this.form.reset();
     this.updateList.emit();
     this.doCloseModal();

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IWishlistItem } from 'src/app/interfaces/wishlist-item';
 import { ApiService } from 'src/app/service/api.service';
 
@@ -9,9 +9,10 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class WishlistComponent implements OnInit {
 
-  itemsList: IWishlistItem[] = [];
-  activeWishListItem: number | null = null;
-  showModal: boolean = false;
+  public itemsList: IWishlistItem[] = [];
+  public activeWishListItem: number | null = null;
+  public showModal: boolean = false;
+  public modalData: IWishlistItem | null = null;
 
   constructor(
     private apiService: ApiService
@@ -21,11 +22,16 @@ export class WishlistComponent implements OnInit {
     this.getItems();
   }
 
-  closeModal() {
+  public openModal(item: IWishlistItem | null) {
+    this.modalData = item;
+    this.showModal = true;
+  }
+
+  public closeModal() {
     this.showModal = false;
   }
 
-  getItems(): void {
+  public getItems(): void {
     this.apiService.getAllWishlishItems().subscribe({
       next: (data) => {
         this.itemsList = data;

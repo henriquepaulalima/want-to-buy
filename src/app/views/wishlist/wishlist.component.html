@@ -3,7 +3,7 @@
     <div class="wishlist__list_header">
       <h2>Wishlist</h2>
       <div class="wishlist__list_header_button_container">
-        <button (click)="showModal = true">
+        <button (click)="this.openModal(null)">
           Add new item
           <img src="assets/images/plus-solid.svg" alt="Icon to add new item">
         </button>
@@ -18,7 +18,7 @@
           <p>{{ item.description }}</p>
           <div [class.wishlist__list_item_button_active_container]="activeWishListItem == i"
             class="wishlist__list_item_button_container">
-            <button>See details</button>
+            <button (click)="this.openModal(item)">See details</button>
           </div>
         </div>
       </li>
@@ -27,5 +27,5 @@
 </div>
 
 <ng-container *ngIf="showModal">
-  <app-modal (updateList)="this.getItems();" (closeModal)="this.closeModal()"></app-modal>
+  <app-modal [modalData]="modalData" (updateList)="this.getItems();" (closeModal)="this.closeModal()"></app-modal>
 </ng-container>
