@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IWishlistItem } from 'src/app/interfaces/wishlist-item';
-import { ApiService } from 'src/app/service/api.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-wishlist',
@@ -9,33 +7,9 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class WishlistComponent implements OnInit {
 
-  public itemsList: IWishlistItem[] = [];
-  public activeWishListItem: number | null = null;
-  public showModal: boolean = false;
-  public modalData: IWishlistItem | null = null;
-
-  constructor(
-    private apiService: ApiService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getItems();
   }
 
-  public openModal(item: IWishlistItem | null) {
-    this.modalData = item;
-    this.showModal = true;
-  }
-
-  public closeModal() {
-    this.showModal = false;
-  }
-
-  public getItems(): void {
-    this.apiService.getAllWishlishItems().subscribe({
-      next: (data) => {
-        this.itemsList = data;
-      }
-    })
-  }
 }
