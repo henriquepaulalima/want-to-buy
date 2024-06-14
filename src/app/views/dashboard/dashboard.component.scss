@@ -15,6 +15,12 @@
       align-items: center;
       padding: 1.5rem;
 
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #000;
+      }
+
       h2 {
         font-size: 2rem;
         font-weight: 600;
@@ -112,7 +118,7 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          transition: .5s ease;
+          transition: .25s ease;
 
           &.dashboard__list_item_button_active_container {
             height: 20%;

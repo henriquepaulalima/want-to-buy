@@ -1,1 +1,44 @@
-<h1>Wishlist</h1>
+<div class="wishlist__container">
+  <div class="wishlist__list_container">
+    <div class="wishlist__list_header">
+      <h2>Wishlist</h2>
+      <div class="wishlist__list_header_button_container">
+        <button (click)="this.openModal(null)">
+          Add new item
+          <img src="assets/images/plus-solid.svg" alt="Icon to add new item">
+        </button>
+      </div>
+    </div>
+    <ul class="wishlist__items_list_container">
+      <li *ngFor="let item of itemsList; let i = index" (mouseover)="activeWishListItem = i"
+        (mouseout)="activeWishListItem = null">
+        <div class="wishlist__list_item">
+          <div class="wishlist__list_item_info">
+            <div class="wishlist__list_item_left">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+            <div class="wishlist__list_item_right">
+              <div class="wishlist__list_item_right_info_container">
+                <p>Created at</p>
+                <h4>10/10/2011</h4>
+              </div>
+              <div class="wishlist__list_item_right_info_container">
+                <p>Price</p>
+                <h4>$ 3000</h4>
+              </div>
+            </div>
+          </div>
+          <div [class.wishlist__list_item_button_active_container]="activeWishListItem == i"
+            class="wishlist__list_item_button_container">
+            <button (click)="this.openModal(item)">See details</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<ng-container *ngIf="showModal">
+  <app-modal [modalData]="modalData" (updateList)="this.getItems();" (closeModal)="this.closeModal()"></app-modal>
+</ng-container>

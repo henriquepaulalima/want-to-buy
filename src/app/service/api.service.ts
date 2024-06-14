@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IWishlistItem } from '../interfaces/wishlist-item';
@@ -14,8 +14,13 @@ export class ApiService {
     private http: HttpClient
   ) { }
 
-  getAllWishlishItems(): Observable<IWishlistItem[]> {
-    return this.http.get<IWishlistItem[]>(this.apiKey);
+  getItems(page?: number, pageSize?: number): Observable<IWishlistItem[]> {
+    let params = new HttpParams();
+
+    if (page) params = params.set('_page', page);
+    if (pageSize) params = params.set('_limit', pageSize);
+
+    return this.http.get<IWishlistItem[]>(this.apiKey, { params });
   }
 
   createNewItem(wishlistItem: IWishlistItem) {

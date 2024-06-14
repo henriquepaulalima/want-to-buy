@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   }
 
   public getItems(): void {
-    this.apiService.getAllWishlishItems().subscribe({
+    this.apiService.getItems(1, 5).subscribe({
       next: (data) => {
         this.wishlistItems = data;
       }
