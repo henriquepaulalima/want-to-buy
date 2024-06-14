@@ -76,6 +76,17 @@ export class ModalComponent implements OnInit {
     }
   }
 
+  public deleteItem(): void {
+    if (this.modalData) {
+      this.apiService.deleteItem(this.formData).subscribe(() => {
+        this.clearForm();
+        this.doCloseModal();
+      });
+    } else {
+      console.error("Something went wrong when deleting current item");
+    }
+  }
+
   public clearForm(): void {
     this.form.reset();
     this.updateList.emit();

@@ -26,4 +26,9 @@ export class ApiService {
     const url = `${this.apiKey}/${wishlistItem.id}`;
     return this.http.put<IWishlistItem>(url, wishlistItem);
   }
+
+  deleteItem(wishlistItem: IWishlistItem) {
+    const url = `${this.apiKey}/${wishlistItem.id}`;
+    return this.http.delete<IWishlistItem>(url);
+  }
 }

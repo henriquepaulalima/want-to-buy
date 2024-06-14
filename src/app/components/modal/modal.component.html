@@ -14,6 +14,7 @@
       </fieldset>
       <div class="modal__form_buttons_container">
         <button (click)="doCloseModal();" type="button" class="modal__form_cancel_btn">Cancel</button>
+        <button *ngIf="this.modalData" (click)="this.deleteItem();" type="button" class="modal__form_delete_btn">Delete</button>
         <button [disabled]="!this.form.dirty || !this.form.valid" type="submit" class="modal__form_save_btn">Save</button>
       </div>
     </form>

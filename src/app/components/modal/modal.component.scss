@@ -116,6 +116,14 @@
               cursor: default;
             }
           }
+
+          &.modal__form_delete_btn {
+            background: #F44336;
+
+            &:hover {
+              background: rgba($color: #F44336, $alpha: .5);
+            }
+          }
         }
       }
     }
