@@ -31,13 +31,16 @@ export class ModalComponent implements OnInit {
       this.formData = {
         id: "",
         title: "",
-        description: ""
+        description: "",
+        cratedAt: new Date(),
+        price: null
       };
     }
 
     this.form = this.formBuilder.group({
       title: [this.formData?.title, [Validators.required]],
-      description: [this.formData?.description, [Validators.required]]
+      description: [this.formData?.description, [Validators.required]],
+      price: [this.formData?.price, [Validators.required]]
     });
 
     setTimeout(() => {
@@ -59,7 +62,9 @@ export class ModalComponent implements OnInit {
       const item: IWishlistItem = {
         id: itemId,
         title: this.form.get('title')?.value,
-        description: this.form.get('description')?.value
+        description: this.form.get('description')?.value,
+        cratedAt: new Date(),
+        price: this.form.get('price')?.value
       };
 
       if (this.modalData) {

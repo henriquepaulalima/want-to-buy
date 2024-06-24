@@ -21,11 +21,11 @@
             <div class="wishlist__list_item_right">
               <div class="wishlist__list_item_right_info_container">
                 <p>Created at</p>
-                <h4>10/10/2011</h4>
+                <h4>{{ item.cratedAt | date: 'dd/mm/yyyy' }}</h4>
               </div>
               <div class="wishlist__list_item_right_info_container">
                 <p>Price</p>
-                <h4>$ 3000</h4>
+                <h4>$ {{ item.price }}</h4>
               </div>
             </div>
           </div>
@@ -35,6 +35,7 @@
           </div>
         </div>
       </li>
+      <p *ngIf="this.itemsList.length == 0">You don't have any item registered</p>
     </ul>
   </div>
 </div>

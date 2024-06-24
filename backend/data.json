@@ -1,39 +1,11 @@
 {
   "items": [
     {
-      "id": "79e69bfd-0de1-4f06-a7b0-4872688b3b57",
-      "title": "Item 10",
-      "description": "Lorem ipsum dolor sit amet, consectetur"
-    },
-    {
-      "id": "766ff51e-a776-4fb4-882d-6ff82e542261",
-      "title": "Item 2",
-      "description": "3123123123123asda"
-    },
-    {
-      "id": "d833cd93-50ce-45db-8fc7-a437586a06e8",
-      "title": "Item 30",
-      "description": "llllllllllllllllllllllllllllllllll"
-    },
-    {
-      "id": "5f7aa8bf-3104-4f1f-a403-a1df111f2777",
-      "title": "qweqw",
-      "description": "eqweqwe q"
-    },
-    {
-      "id": "fad1a944-bf7c-4dd2-a0ae-c882bba95c40",
-      "title": "qweqwe",
-      "description": "qweqweqweqw"
-    },
-    {
-      "id": "c7f6f49b-40bf-47aa-8871-94e465dcd2fb",
-      "title": "eqweqwe",
-      "description": "eqweqweqweqwqw"
-    },
-    {
-      "id": "81ac924e-c48f-4e7e-8488-1710eedd4d12",
-      "title": "eqwe",
-      "description": "qwe"
+      "id": "9cb681d3-4d7e-40bd-b8d7-328f798cf576",
+      "title": "Ba",
+      "description": "A futtball ball",
+      "cratedAt": "2024-06-24T17:23:47.796Z",
+      "price": 50
     }
   ]
 }

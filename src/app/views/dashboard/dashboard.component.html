@@ -6,7 +6,9 @@
     <div class="dashboard__list_header">
       <h2>Wishlist</h2>
       <div class="dashboard__list_header_button_container">
-        <button routerLink="/wishlist" class="dashboard__list_header_see_more_btn">See all</button>
+        <button routerLink="/wishlist" class="dashboard__list_header_see_more_btn">
+          {{ this.wishlistItems.length > 0 ? 'See all' : 'Go to wishlist' }}
+        </button>
       </div>
     </div>
     <ul class="dashboard__items_list_container">
@@ -21,6 +23,7 @@
           </div>
         </div>
       </li>
+      <p *ngIf="wishlistItems.length == 0">You don't have any item registered</p>
     </ul>
   </div>
 </div>

@@ -4,13 +4,18 @@
     <form (submit)="this.submitForm();" [formGroup]="this.form" class="modal__form_container">
       <fieldset>
         <label for="title_input">Title</label>
-        <input [class.invalid]="this.form.get('title')?.touched && !this.form.get('title')?.valid" formControlName="title" id="title_input" type="text">
+        <input [class.invalid]="this.form.get('title')?.touched && !this.form.get('title')?.valid" formControlName="title" id="title_input" type="text" placeholder="Type a title to the item you want to buy">
         <small *ngIf="this.form.get('title')?.touched && this.form.get('title')?.errors?.['required']">The title field is required</small>
       </fieldset>
       <fieldset>
         <label for="description_input">Description</label>
-        <input [class.invalid]="this.form.get('description')?.touched && !this.form.get('description')?.valid" formControlName="description" id="description_input" type="text">
+        <input [class.invalid]="this.form.get('description')?.touched && !this.form.get('description')?.valid" formControlName="description" id="description_input" type="text" placeholder="Give your item a description">
         <small *ngIf="this.form.get('description')?.touched && this.form.get('description')?.errors?.['required']">The description field is required</small>
+      </fieldset>
+      <fieldset>
+        <label for="price_input">Price</label>
+        <input [class.invalid]="this.form.get('price')?.touched && !this.form.get('price')?.valid" formControlName="price" id="price_input" type="number" placeholder="Type the price of the item">
+        <small *ngIf="this.form.get('price')?.touched && this.form.get('price')?.errors?.['required']">The price field is required</small>
       </fieldset>
       <div class="modal__form_buttons_container">
         <button (click)="doCloseModal();" type="button" class="modal__form_cancel_btn">Cancel</button>
