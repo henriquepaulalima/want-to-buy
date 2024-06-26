@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IWishlistItem } from 'src/app/interfaces/wishlist-item';
 import { ApiService } from 'src/app/service/api.service';
@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnDestroy {
 
   @Input() modalData: IWishlistItem | null = null;
   @Output() closeModal = new EventEmitter<boolean>();
@@ -25,6 +25,8 @@ export class ModalComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    document.body.classList.add('no-scroll');
+
     if (this.modalData) {
       this.formData = this.modalData;
     } else {
@@ -98,4 +100,7 @@ export class ModalComponent implements OnInit {
     this.doCloseModal();
   }
 
+  ngOnDestroy(): void {
+    document.body.classList.remove('no-scroll');
+  }
 }
