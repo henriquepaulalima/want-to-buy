@@ -8,7 +8,7 @@ import { IWishlistItem } from '../interfaces/wishlist-item';
 })
 export class ApiService {
 
-  public readonly apiKey = "http://localhost:4000/items";
+  public readonly apiKey = "http://localhost:8080";
 
   constructor(
     private http: HttpClient

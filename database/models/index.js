@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/sequelize');
-const Items = require('./items');
-const items = Items(sequelize, Sequelize.DataTypes);
+const WishlistItem = require('./wishlistItems');
+const wishlistItems = WishlistItem(sequelize, Sequelize.DataTypes);
 const db = {
-  items,
+  wishlistItems,
   sequelize
 };
 

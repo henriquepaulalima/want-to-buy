@@ -32,7 +32,7 @@ export class ModalComponent implements OnInit {
         id: "",
         title: "",
         description: "",
-        cratedAt: new Date(),
+        createdAt: null,
         price: null
       };
     }
@@ -63,7 +63,7 @@ export class ModalComponent implements OnInit {
         id: itemId,
         title: this.form.get('title')?.value,
         description: this.form.get('description')?.value,
-        cratedAt: new Date(),
+        createdAt: null,
         price: this.form.get('price')?.value
       };
 
